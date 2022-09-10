@@ -2,10 +2,10 @@ import 'package:sqflite/sqflite.dart';
 
 import '../../domain/model/note.dart';
 
-class NoteDb {
+class NoteDbHelper {
   Database db;
 
-  NoteDb(this.db);
+  NoteDbHelper(this.db);
 
   Future<Note?> getNoteById(int id) async {
     //SELECT * FROM note WHERE id = 1과 같은 의미
