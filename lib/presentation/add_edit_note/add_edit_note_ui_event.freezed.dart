@@ -19,32 +19,38 @@ mixin _$AddEditNoteUiEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() saveNote,
+    required TResult Function() showSnackBar,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? saveNote,
+    TResult Function()? showSnackBar,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? saveNote,
+    TResult Function()? showSnackBar,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(SaveNote value) saveNote,
+    required TResult Function(ShowSnackBar value) showSnackBar,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(SaveNote value)? saveNote,
+    TResult Function(ShowSnackBar value)? showSnackBar,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SaveNote value)? saveNote,
+    TResult Function(ShowSnackBar value)? showSnackBar,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -108,6 +114,7 @@ class _$SaveNote implements SaveNote {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() saveNote,
+    required TResult Function() showSnackBar,
   }) {
     return saveNote();
   }
@@ -116,6 +123,7 @@ class _$SaveNote implements SaveNote {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? saveNote,
+    TResult Function()? showSnackBar,
   }) {
     return saveNote?.call();
   }
@@ -124,6 +132,7 @@ class _$SaveNote implements SaveNote {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? saveNote,
+    TResult Function()? showSnackBar,
     required TResult orElse(),
   }) {
     if (saveNote != null) {
@@ -136,6 +145,7 @@ class _$SaveNote implements SaveNote {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(SaveNote value) saveNote,
+    required TResult Function(ShowSnackBar value) showSnackBar,
   }) {
     return saveNote(this);
   }
@@ -144,6 +154,7 @@ class _$SaveNote implements SaveNote {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(SaveNote value)? saveNote,
+    TResult Function(ShowSnackBar value)? showSnackBar,
   }) {
     return saveNote?.call(this);
   }
@@ -152,6 +163,7 @@ class _$SaveNote implements SaveNote {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SaveNote value)? saveNote,
+    TResult Function(ShowSnackBar value)? showSnackBar,
     required TResult orElse(),
   }) {
     if (saveNote != null) {
@@ -163,4 +175,109 @@ class _$SaveNote implements SaveNote {
 
 abstract class SaveNote implements AddEditNoteUiEvent {
   const factory SaveNote() = _$SaveNote;
+}
+
+/// @nodoc
+abstract class _$$ShowSnackBarCopyWith<$Res> {
+  factory _$$ShowSnackBarCopyWith(
+          _$ShowSnackBar value, $Res Function(_$ShowSnackBar) then) =
+      __$$ShowSnackBarCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ShowSnackBarCopyWithImpl<$Res>
+    extends _$AddEditNoteUiEventCopyWithImpl<$Res>
+    implements _$$ShowSnackBarCopyWith<$Res> {
+  __$$ShowSnackBarCopyWithImpl(
+      _$ShowSnackBar _value, $Res Function(_$ShowSnackBar) _then)
+      : super(_value, (v) => _then(v as _$ShowSnackBar));
+
+  @override
+  _$ShowSnackBar get _value => super._value as _$ShowSnackBar;
+}
+
+/// @nodoc
+
+class _$ShowSnackBar implements ShowSnackBar {
+  const _$ShowSnackBar();
+
+  @override
+  String toString() {
+    return 'AddEditNoteUiEvent.showSnackBar()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ShowSnackBar);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() saveNote,
+    required TResult Function() showSnackBar,
+  }) {
+    return showSnackBar();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? saveNote,
+    TResult Function()? showSnackBar,
+  }) {
+    return showSnackBar?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? saveNote,
+    TResult Function()? showSnackBar,
+    required TResult orElse(),
+  }) {
+    if (showSnackBar != null) {
+      return showSnackBar();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(SaveNote value) saveNote,
+    required TResult Function(ShowSnackBar value) showSnackBar,
+  }) {
+    return showSnackBar(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(SaveNote value)? saveNote,
+    TResult Function(ShowSnackBar value)? showSnackBar,
+  }) {
+    return showSnackBar?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SaveNote value)? saveNote,
+    TResult Function(ShowSnackBar value)? showSnackBar,
+    required TResult orElse(),
+  }) {
+    if (showSnackBar != null) {
+      return showSnackBar(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ShowSnackBar implements AddEditNoteUiEvent {
+  const factory ShowSnackBar() = _$ShowSnackBar;
 }
