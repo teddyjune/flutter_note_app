@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:note_app/domain/util/note_order.dart';
+import 'package:note_app/domain/util/order_type.dart';
 import 'package:note_app/presentation/notes/notes_state.dart';
 
 import '../../domain/model/note.dart';
@@ -8,7 +10,8 @@ import 'notes_event.dart';
 class NotesViewModel with ChangeNotifier {
   final UseCases useCases;
 
-  NotesState state = NotesState();
+  NotesState state = const NotesState(
+      notes: [], noteOrder: NoteOrder.date(OrderType.descending()));
 
   Note? _recentlyDeletedNote;
 
@@ -25,7 +28,7 @@ class NotesViewModel with ChangeNotifier {
   }
 
   Future<void> _loadNotes() async {
-    List<Note> notes = await useCases.getNotes();
+    List<Note> notes = await useCases.getNotes(state.noteOrder);
     state = state.copyWith(notes: notes);
     notifyListeners();
   }
