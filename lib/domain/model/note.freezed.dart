@@ -137,7 +137,7 @@ class _$_Note implements _Note {
       required this.content,
       required this.color,
       required this.timestamp,
-      required this.id});
+      this.id});
 
   factory _$_Note.fromJson(Map<String, dynamic> json) => _$$_NoteFromJson(json);
 
@@ -198,7 +198,7 @@ abstract class _Note implements Note {
       required final String content,
       required final int color,
       required final int timestamp,
-      required final int? id}) = _$_Note;
+      final int? id}) = _$_Note;
 
   factory _Note.fromJson(Map<String, dynamic> json) = _$_Note.fromJson;
 
