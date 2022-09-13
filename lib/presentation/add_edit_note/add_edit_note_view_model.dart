@@ -1,15 +1,22 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:note_app/domain/repository/note_repository.dart';
 import 'package:note_app/presentation/add_edit_note/add_edit_note_event.dart';
+import 'package:note_app/presentation/add_edit_note/add_edit_note_ui_event.dart';
 
 import '../../domain/model/note.dart';
+import '../../ui/colors.dart';
 
 class AddEditNoteViewModel with ChangeNotifier {
   final NoteRepository repository;
-  int _color = Colors.orange.value;
+  int _color = roseBud.value;
 
   int get color => _color;
+  final _eventController = StreamController<AddEditNoteUiEvent>.broadcast();
+
+  Stream<AddEditNoteUiEvent> get eventStream => _eventController.stream;
 
   AddEditNoteViewModel(this.repository);
 
@@ -18,6 +25,11 @@ class AddEditNoteViewModel with ChangeNotifier {
       changeColor: _changeColor,
       saveNote: _saveNote,
     );
+  }
+
+  Future<void> _changeColor(int color) async {
+    _color = color;
+    notifyListeners();
   }
 
   Future<void> _saveNote(int? id, String title, String content) async {
@@ -40,10 +52,6 @@ class AddEditNoteViewModel with ChangeNotifier {
             timestamp: DateTime.now().millisecondsSinceEpoch),
       );
     }
-  }
-
-  Future<void> _changeColor(int color) async {
-    _color = color;
-    notifyListeners();
+    _eventController.add(const AddEditNoteUiEvent.saveNote());
   }
 }
