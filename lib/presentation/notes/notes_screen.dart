@@ -4,6 +4,7 @@ import 'package:note_app/presentation/notes/notes_event.dart';
 import 'package:provider/provider.dart';
 
 import 'components/note_item.dart';
+import 'components/order_section.dart';
 import 'notes_view_model.dart';
 
 class NotesScreen extends StatelessWidget {
@@ -42,8 +43,14 @@ class NotesScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: ListView(
-          children: state.notes
+        child: ListView(children: [
+          OrderSection(
+            noteOrder: state.noteOrder,
+            onOrderChanged: (noteOrder) {
+              viewModel.onEvent(NotesEvent.changeOrder(noteOrder));
+            },
+          ),
+          ...state.notes
               .map((note) => GestureDetector(
                     onTap: () async {
                       bool? isSaved = await Navigator.push(
@@ -74,7 +81,7 @@ class NotesScreen extends StatelessWidget {
                     ),
                   ))
               .toList(),
-        ),
+        ]),
       ),
     );
   }
